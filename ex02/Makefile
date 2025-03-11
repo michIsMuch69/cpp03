@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: michismuch <michismuch@student.42.fr>      +#+  +:+       +#+         #
+#    By: jedusser <jedusser@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/03 10:31:02 by michismuch        #+#    #+#              #
-#    Updated: 2025/03/03 17:03:09 by michismuch       ###   ########.fr        #
+#    Updated: 2025/03/11 12:06:31 by jedusser         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
