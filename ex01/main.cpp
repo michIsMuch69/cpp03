@@ -6,7 +6,7 @@
 /*   By: jedusser <jedusser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 10:31:00 by michismuch        #+#    #+#             */
-/*   Updated: 2025/03/11 11:27:39 by jedusser         ###   ########.fr       */
+/*   Updated: 2025/03/11 11:45:46 by jedusser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ void testScavTrap()
     
     std::cout <<  "Début de la simulation pour ScavTrap " << st.getName() << "...\n" << std::endl;
     
+    st.guardGate();
     while (st.getEnergyPoints() > 0 && st.getHitPoints() > 0)
     {
         st.attack("Roger");
@@ -64,7 +65,6 @@ void testScavTrap()
     std::cout << "\nSimulation terminée. État final de ScavTrap " << st.getName() << " :" << std::endl;
     std::cout << "Points de vie : " << YELLOW << st.getHitPoints() << RESET << ", Points d'énergie : " << YELLOW <<st.getEnergyPoints()  << RESET << std::endl << std::endl;
     
-    st.guardGate();
     
     
     return ;

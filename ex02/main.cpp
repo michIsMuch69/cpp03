@@ -6,7 +6,7 @@
 /*   By: jedusser <jedusser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 10:31:00 by michismuch        #+#    #+#             */
-/*   Updated: 2025/03/11 11:27:23 by jedusser         ###   ########.fr       */
+/*   Updated: 2025/03/11 11:46:05 by jedusser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ void testFragTrap()
     
     std::cout <<  "Début de la simulation pour FragTrap " << ft.getName() << "...\n" << std::endl;
     
+    ft.highFiveGuys();
     while (ft.getEnergyPoints() > 0 && ft.getHitPoints() > 0)
     {
         ft.attack("Roger");
@@ -64,7 +65,6 @@ void testFragTrap()
     std::cout << "\nSimulation terminée. État final de FragTrap " << ft.getName() << " :" << std::endl;
     std::cout << "Points de vie : " << YELLOW << ft.getHitPoints() << RESET << ", Points d'énergie : " << YELLOW << ft.getEnergyPoints()  << RESET << std::endl << std::endl;
     
-    ft.highFiveGuys();
     
     
     return ;
