@@ -3,14 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: michismuch <michismuch@student.42.fr>      +#+  +:+       +#+        */
+/*   By: jedusser <jedusser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 11:54:59 by michismuch        #+#    #+#             */
-/*   Updated: 2025/03/03 20:12:27 by michismuch       ###   ########.fr       */
+/*   Updated: 2025/03/11 09:43:23 by jedusser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
+
+FragTrap::FragTrap()
+{
+    return ;
+}
 
 FragTrap::FragTrap(const std::string& name) : ClapTrap(name)
 {

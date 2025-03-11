@@ -6,7 +6,7 @@
 /*   By: jedusser <jedusser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 10:30:57 by michismuch        #+#    #+#             */
-/*   Updated: 2025/03/04 11:34:29 by jedusser         ###   ########.fr       */
+/*   Updated: 2025/03/11 09:42:42 by jedusser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ class ClapTrap
         void beRepaired(int amount);    
         
     public:
+        ClapTrap();
         ClapTrap(const std::string& name);
         ClapTrap(const ClapTrap &);
         virtual ~ClapTrap();

@@ -6,11 +6,16 @@
 /*   By: jedusser <jedusser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 10:30:54 by michismuch        #+#    #+#             */
-/*   Updated: 2025/03/04 11:34:16 by jedusser         ###   ########.fr       */
+/*   Updated: 2025/03/11 09:42:30 by jedusser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
+
+ClapTrap::ClapTrap()
+{
+    return ;
+}
 
 ClapTrap::ClapTrap(const std::string& name) 
     : _name(name), _hitPoints(100), _energyPoints(50), _attackDamage(20)

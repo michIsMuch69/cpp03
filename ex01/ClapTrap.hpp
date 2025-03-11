@@ -6,7 +6,7 @@
 /*   By: jedusser <jedusser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 10:30:57 by michismuch        #+#    #+#             */
-/*   Updated: 2025/03/10 09:53:51 by jedusser         ###   ########.fr       */
+/*   Updated: 2025/03/11 09:08:08 by jedusser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,12 @@ class ClapTrap
             int _attackDamage;
         
         public:
+
+            ClapTrap();
             ClapTrap(const std::string& name);
+            ClapTrap(const ClapTrap&);
             virtual ~ClapTrap();
+            ClapTrap & operator=(const ClapTrap &);
             
             virtual void attack(const std::string& target);
             void takeDamage(int amount);
@@ -50,6 +54,7 @@ class ClapTrap
             void setHitPoints(int nb);
             void setEnergyPoints(int nb);
             void setAttackDamage(int nb);
+
     };
 
 #endif

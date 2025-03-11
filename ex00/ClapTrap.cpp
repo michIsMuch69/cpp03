@@ -6,25 +6,45 @@
 /*   By: jedusser <jedusser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 10:30:54 by michismuch        #+#    #+#             */
-/*   Updated: 2025/03/04 11:20:54 by jedusser         ###   ########.fr       */
+/*   Updated: 2025/03/11 09:28:17 by jedusser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap() : _name("Unnamed"), _hitPoints(10), _energyPoints(10), _attackDamage(0)
+ClapTrap::ClapTrap() 
 {
-    std::cout << "Default constructor called for " << _name << std::endl;
+    return ;
 }
 
-ClapTrap::ClapTrap(std::string name) : _name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0)
+ClapTrap::ClapTrap(const std::string name) : _name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
     std::cout << "ClapTrap " << _name << " created with 10 hit points, 10 energy points, and 0 attack damage!" << std::endl;
+}
+
+ClapTrap::ClapTrap(const ClapTrap &other)
+{
+    if (this != &other)
+    {
+        std::cout << "Copy constructor called" << std::endl;
+        *this=other;
+    }
+    return ;
 }
 
 ClapTrap::~ClapTrap()
 {
     std::cout << "Destructor called for " << _name << std::endl;    
+}
+
+ClapTrap & ClapTrap::operator=(ClapTrap const &other)
+{
+    this->_name = other._name;
+    this->_hitPoints = other._hitPoints;
+    this->_energyPoints = other._energyPoints;
+    this->_attackDamage = other._attackDamage;
+    
+    return (*this);
 }
 
 void ClapTrap::attack(const std::string& target)

@@ -6,11 +6,16 @@
 /*   By: jedusser <jedusser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 10:30:54 by michismuch        #+#    #+#             */
-/*   Updated: 2025/03/10 09:54:06 by jedusser         ###   ########.fr       */
+/*   Updated: 2025/03/11 09:00:17 by jedusser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
+
+ClapTrap::ClapTrap()
+{
+    return ;
+}
 
 ClapTrap::ClapTrap(const std::string& name) 
     : _name(name), _hitPoints(100), _energyPoints(50), _attackDamage(20)
@@ -18,9 +23,29 @@ ClapTrap::ClapTrap(const std::string& name)
     std::cout << "ClapTrap " << _name << " has been created!" << std::endl;
 }
 
+ClapTrap::ClapTrap(const ClapTrap &other)
+{
+    if (this != &other)
+    {
+        std::cout << "Copy constructor called" << std::endl;
+        *this = other;
+    }
+    return ;
+}
+
 ClapTrap::~ClapTrap()
 {
     std::cout << "ClapTrap " << _name << " has been destroyed!" << std::endl;
+}
+
+ClapTrap & ClapTrap::operator=(const ClapTrap &other)
+{
+    this->_name = other._name;
+    this->_hitPoints = other._hitPoints;
+    this->_energyPoints = other._energyPoints;
+    this->_attackDamage = other._attackDamage;
+
+    return (*this);
 }
 
 void ClapTrap::attack(const std::string& target)
