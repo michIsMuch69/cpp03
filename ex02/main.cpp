@@ -3,41 +3,80 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: michismuch <michismuch@student.42.fr>      +#+  +:+       +#+        */
+/*   By: jedusser <jedusser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 10:31:00 by michismuch        #+#    #+#             */
-/*   Updated: 2025/03/03 19:39:10 by michismuch       ###   ########.fr       */
+/*   Updated: 2025/03/11 11:27:23 by jedusser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
 #include "FragTrap.hpp"
 
+#define GREEN "\033[1;32m"
+#define RED "\033[1;31m"
+#define YELLOW "\033[1;33m"
+#define RESET "\033[0m"
 
-int main()
+void testClapTrap()
 {
-    ClapTrap clap("John ClapTrap");
+    
+    ClapTrap ct("Clap");
+    std::cout << RED << "Début de la simulation pour ClapTrap " << ct.getName() << "...\n" << std::endl;
+    
+    while (ct.getEnergyPoints() > 0 && ct.getHitPoints() > 0)
+    {
+        ct.attack("Roger");
+        ct.takeDamage(3);
+        ct.beRepaired(5);
+    
+        if (ct.getEnergyPoints() == 0)
+        {
+            std::cout << ct.getName() << " n'a plus de points d'énergie." << std::endl;
+            break;
+        }
+    }
+    
+    std::cout << "\nSimulation terminée. État final de ClapTrap " << ct.getName() << " :" << std::endl;
+    std::cout << "Points de vie : " << YELLOW << ct.getHitPoints() << RESET << ", Points d'énergie : " << YELLOW <<ct.getEnergyPoints()  << RESET << std::endl << std::endl;
+    return ;
+}
 
-    FragTrap scav("Bob FragTrap");
+void testFragTrap()
+{
+    std::cout << GREEN;
+    FragTrap ft("Frag");
+    
+    std::cout <<  "Début de la simulation pour FragTrap " << ft.getName() << "...\n" << std::endl;
+    
+    while (ft.getEnergyPoints() > 0 && ft.getHitPoints() > 0)
+    {
+        ft.attack("Roger");
+        ft.takeDamage(10);
+        ft.beRepaired(7);
+    
+        if (ft.getEnergyPoints() == 0)
+        {
+            std::cout << ft.getName() << " n'a plus de points d'énergie." << std::endl;
+            break;
+        }
+    }
+    
+    std::cout << "\nSimulation terminée. État final de FragTrap " << ft.getName() << " :" << std::endl;
+    std::cout << "Points de vie : " << YELLOW << ft.getHitPoints() << RESET << ", Points d'énergie : " << YELLOW << ft.getEnergyPoints()  << RESET << std::endl << std::endl;
+    
+    ft.highFiveGuys();
+    
+    
+    return ;
+}
 
-    ClapTrap* clapPtr;
-
-    clapPtr = &clap;
-    clapPtr->attack("target");
-    clapPtr->attack("target");
-    clapPtr->attack("target");
-    clapPtr->attack("target");
-    clapPtr->attack("target");
-
-    clapPtr = &scav;
-    clapPtr->attack("target");
-    clapPtr->attack("target");
-    clapPtr->attack("target");
-    clapPtr->attack("target");
-    clapPtr->attack("target");
-    clapPtr->attack("target");
-
-    scav.highFiveGuys(); 
-
-    return 0;
+int main(void)
+{
+    
+    testClapTrap();
+    std::cout << RESET;
+    testFragTrap(); 
+    std::cout << RESET;
+        
+    
 }

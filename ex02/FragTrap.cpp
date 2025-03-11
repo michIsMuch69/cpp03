@@ -6,7 +6,7 @@
 /*   By: jedusser <jedusser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 11:54:59 by michismuch        #+#    #+#             */
-/*   Updated: 2025/03/11 09:43:23 by jedusser         ###   ########.fr       */
+/*   Updated: 2025/03/11 11:01:33 by jedusser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ FragTrap::FragTrap(const std::string& name) : ClapTrap(name)
     setHitPoints(100);   
     setEnergyPoints(100);
     setAttackDamage(30);
-    std::cout << "FragTrap " << getName() << " has been created!" << std::endl;
+    std::cout << "FragTrap " << getName() << " created with " << getHitPoints() << " hit points," << getEnergyPoints() << " energy points, and " << getAttackDamage() << " attack damage!" << std::endl;
 }
 
 FragTrap::FragTrap(const FragTrap& other) : ClapTrap(other) 

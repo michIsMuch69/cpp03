@@ -6,7 +6,7 @@
 /*   By: jedusser <jedusser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 10:30:54 by michismuch        #+#    #+#             */
-/*   Updated: 2025/03/11 09:28:17 by jedusser         ###   ########.fr       */
+/*   Updated: 2025/03/11 11:08:52 by jedusser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ ClapTrap::ClapTrap()
     return ;
 }
 
-ClapTrap::ClapTrap(const std::string name) : _name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0)
+ClapTrap::ClapTrap(const std::string& name) : _name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
-    std::cout << "ClapTrap " << _name << " created with 10 hit points, 10 energy points, and 0 attack damage!" << std::endl;
+    std::cout << "ClapTrap " << _name << " created with " << _hitPoints << " hit points, " << _energyPoints << " energy points, and " <<  _attackDamage << " attack damage!" << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap &other)
@@ -79,7 +79,7 @@ void ClapTrap::takeDamage(unsigned int amount)
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
-    if (_energyPoints > 0)
+    if (_energyPoints > 0 && _hitPoints > 0)
     {
         _hitPoints += amount;
         _energyPoints--;
@@ -87,9 +87,7 @@ void ClapTrap::beRepaired(unsigned int amount)
         std::cout << "Energy left: " << _energyPoints << std::endl;
     }
     else
-    {
-        std::cout << _name << " has no energy to repair!" << std::endl;
-    }
+        std::cout << _name << " cannot be repaired due to lack of energy or hit points!" << std::endl;
 }
 
 const int& ClapTrap::getEnergyPoints() const

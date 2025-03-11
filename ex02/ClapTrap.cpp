@@ -6,7 +6,7 @@
 /*   By: jedusser <jedusser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 10:30:54 by michismuch        #+#    #+#             */
-/*   Updated: 2025/03/11 09:42:30 by jedusser         ###   ########.fr       */
+/*   Updated: 2025/03/11 11:00:52 by jedusser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ ClapTrap::ClapTrap()
 ClapTrap::ClapTrap(const std::string& name) 
     : _name(name), _hitPoints(100), _energyPoints(50), _attackDamage(20)
 {
-    std::cout << "ClapTrap " << _name << " has been created!" << std::endl;
+    std::cout << "ClapTrap " << _name << " created with " << _hitPoints << " hit points," << _energyPoints << " energy points, and " <<  _attackDamage << " attack damage!" << std::endl;
 }
 
 ClapTrap::~ClapTrap()
@@ -30,9 +30,11 @@ ClapTrap::~ClapTrap()
 
 ClapTrap::ClapTrap(const ClapTrap& other)
 {
-    std::cout << "Copy constructor called" << std::endl;
-    *this=other;
-
+    if (this != &other)
+    {
+        std::cout << "Copy constructor called" << std::endl;
+        *this=other;
+    }
     return ;
 }
 
@@ -52,10 +54,17 @@ void ClapTrap::attack(const std::string& target)
 
 void ClapTrap::takeDamage(int amount)
 {
-    if (amount < 0) return;
+    if (_hitPoints > 0)
+    {
         _hitPoints -= amount;
-    if (_hitPoints < 0) _hitPoints = 0;
-            std::cout << _name << " took " << amount << " points of damage!" << std::endl;
+        if (_hitPoints < 0)
+            _hitPoints = 0;
+        std::cout << _name << " took " << amount << " damage. Hit points left: " << _hitPoints << std::endl;
+    }
+    else
+    {
+        std::cout << _name << " has no hit points left!" << std::endl;
+    }
 }
 
 void ClapTrap::beRepaired(int amount)
@@ -64,8 +73,8 @@ void ClapTrap::beRepaired(int amount)
     {
         _hitPoints += amount;
         _energyPoints--;
-        std::cout << _name << " has been repaired by " << amount 
-                  << " hit points! Energy left: " << _energyPoints << std::endl;
+        std::cout << _name << " got repaired, regaining " << amount << " hit points. Hit points: " << _hitPoints << std::endl;
+        std::cout << "Energy left: " << _energyPoints << std::endl;
     }
     else
         std::cout << _name << " cannot be repaired due to lack of energy or hit points!" << std::endl;
