@@ -6,20 +6,15 @@
 /*   By: jedusser <jedusser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 11:54:59 by michismuch        #+#    #+#             */
-/*   Updated: 2025/03/11 11:18:43 by jedusser         ###   ########.fr       */
+/*   Updated: 2025/03/12 09:14:49 by jedusser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap()
-{
-    return ;
-}
 
 ScavTrap::ScavTrap(const std::string& name) : ClapTrap(name)
 {
-    
     setHitPoints(100);   
     setEnergyPoints(50);
     setAttackDamage(20);

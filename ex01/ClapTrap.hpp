@@ -6,7 +6,7 @@
 /*   By: jedusser <jedusser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 10:30:57 by michismuch        #+#    #+#             */
-/*   Updated: 2025/03/11 11:26:05 by jedusser         ###   ########.fr       */
+/*   Updated: 2025/03/12 09:13:59 by jedusser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ class ClapTrap
         
         public:
 
-            ClapTrap();
             ClapTrap(const std::string& name);
             ClapTrap(const ClapTrap&);
             virtual ~ClapTrap();

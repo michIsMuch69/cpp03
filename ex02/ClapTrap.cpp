@@ -6,16 +6,12 @@
 /*   By: jedusser <jedusser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 10:30:54 by michismuch        #+#    #+#             */
-/*   Updated: 2025/03/11 12:05:31 by jedusser         ###   ########.fr       */
+/*   Updated: 2025/03/12 09:14:14 by jedusser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap()
-{
-    return ;
-}
 
 ClapTrap::ClapTrap(const std::string& name) 
     : _name(name), _hitPoints(10), _energyPoints(10), _attackDamage(    0)
@@ -30,14 +26,23 @@ ClapTrap::~ClapTrap()
 
 ClapTrap::ClapTrap(const ClapTrap& other)
 {
-    if (this != &other)
-    {
-        std::cout << "Copy constructor called" << std::endl;
-        *this=other;
-    }
+    std::cout << "Copy constructor called" << std::endl;
+    *this=other;
     return ;
 }
 
+ClapTrap & ClapTrap::operator=(ClapTrap const &other)
+{
+    if (this != &other)
+    {
+        std::cout << "Copy assignment operator called" << std::endl;
+        this->_name = other._name;
+        this->_hitPoints = other._hitPoints;
+        this->_energyPoints = other._energyPoints;
+        this->_attackDamage = other._attackDamage;
+    }
+    return (*this);
+}
 
 void ClapTrap::attack(const std::string& target)
 {
@@ -81,15 +86,6 @@ void ClapTrap::beRepaired(int amount)
 }
 
 
-ClapTrap & ClapTrap::operator=(ClapTrap const &other)
-{
-	std::cout << "Copy assignment operator called" << std::endl;
-	this->_name = other._name;
-    this->_hitPoints = other._hitPoints;
-    this->_energyPoints = other._energyPoints;
-    this->_attackDamage = other._attackDamage;
-	return (*this);
-}
 
 const std::string& ClapTrap::getName () const { return (this->_name) ; }
 const int& ClapTrap::getHitPoints() const { return (this->_hitPoints) ; } 

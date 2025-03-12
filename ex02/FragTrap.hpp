@@ -6,7 +6,7 @@
 /*   By: jedusser <jedusser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 16:59:14 by michismuch        #+#    #+#             */
-/*   Updated: 2025/03/11 09:43:33 by jedusser         ###   ########.fr       */
+/*   Updated: 2025/03/12 09:14:37 by jedusser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 class FragTrap : public ClapTrap
 {
     public:
-        FragTrap();
         FragTrap(const std::string& name);
         FragTrap(const FragTrap& other);
         ~FragTrap();

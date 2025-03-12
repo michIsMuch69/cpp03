@@ -6,7 +6,7 @@
 /*   By: jedusser <jedusser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 10:31:00 by michismuch        #+#    #+#             */
-/*   Updated: 2025/03/11 11:46:05 by jedusser         ###   ########.fr       */
+/*   Updated: 2025/03/12 10:15:18 by jedusser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,6 @@ void testFragTrap()
     
     return ;
 }
-
 int main(void)
 {
     
@@ -77,6 +76,50 @@ int main(void)
     std::cout << RESET;
     testFragTrap(); 
     std::cout << RESET;
-        
+
+    std::cout << "Test copy constructor and assignment operator" << std::endl;
+
+    ClapTrap a("sam");
+    ClapTrap b(a);
+
+    std::cout   << "Test copy constructor on ClapTrap" << std::endl
+                << GREEN "Original attributes :" << std::endl
+                << a.getName() << std::endl
+                << a.getHitPoints() << std::endl
+                << a.getEnergyPoints() << std::endl
+                << a.getAttackDamage()
+                << RESET << std::endl;
+                
+    std::cout   << YELLOW  << "Copy attributes :"
+                <<  b.getName() << std::endl
+                << b.getHitPoints() << std::endl
+                << b.getEnergyPoints() << std::endl
+                << b.getAttackDamage()
+                << RESET  << std::endl;
     
+    a.setAttackDamage(2000);
+    std::cout   << "attack damage after change on a " 
+                << a.getAttackDamage() << std::endl;
+    
+    std::cout   << "attack damage after change on b " 
+                << b.getAttackDamage() << std::endl;
+
+
+
+
+    FragTrap original("Joe");
+    FragTrap copy(original);
+    FragTrap assign = copy;
+
+    std::cout << "Test copy constructor on FragTrap" << std::endl;
+    std::cout << copy.getName() << std::endl;
+    std::cout << copy.getHitPoints() << std::endl;
+    std::cout << copy.getEnergyPoints() << std::endl;
+    std::cout << copy.getAttackDamage() << std::endl;
+
+    std::cout << "Test assignment operator on FragTrap" << std::endl;
+    std::cout << assign.getName() << std::endl;
+    std::cout << assign.getHitPoints() << std::endl;
+    std::cout << assign.getEnergyPoints() << std::endl;
+    std::cout << assign.getAttackDamage() << std::endl;
 }

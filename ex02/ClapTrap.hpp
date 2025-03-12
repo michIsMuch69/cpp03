@@ -6,7 +6,7 @@
 /*   By: jedusser <jedusser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 10:30:57 by michismuch        #+#    #+#             */
-/*   Updated: 2025/03/11 11:07:29 by jedusser         ###   ########.fr       */
+/*   Updated: 2025/03/12 09:14:26 by jedusser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ class ClapTrap
         int _energyPoints;
         int _attackDamage;
         
-        public:
-        ClapTrap();
+    public:
+        
         ClapTrap(const std::string& name);
         ClapTrap(const ClapTrap &);
         virtual ~ClapTrap();
